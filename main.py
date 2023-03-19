@@ -5,7 +5,7 @@ from discord.ext import commands
 from discord.ext import tasks
 from datetime import datetime
 
-DISCORD_TOKEN = "MTA2MjY1MjQ4NDMwNjMzNzg0NA.G48p3M.JFPuY2jeuNTlJ7DJ6KdxWo3F_-EhtC-Yxid_sc"
+DISCORD_TOKEN = ""
 bot = commands.Bot(command_prefix=".", intents=discord.Intents.all())
 AF = ArlandaMAT()
 
