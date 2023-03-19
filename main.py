@@ -9,16 +9,13 @@ DISCORD_TOKEN = ""
 bot = commands.Bot(command_prefix=".", intents=discord.Intents.all())
 AF = ArlandaMAT()
 
-
-
-
 @tasks.loop(seconds=1)
 async def check():
     channel = await bot.fetch_channel(1068962730473693294)
     lastdatepinged = None
     nowdate = datetime.now().strftime("%d %B")
     if lastdatepinged != nowdate:
-        if datetime.now().strftime("%H:%M") == "11:33":
+        if datetime.now().strftime("%H:%M") == "10:00":
             lastdatepinged = nowdate
             meal = AF.get_today()
             if meal != None:
@@ -32,14 +29,6 @@ async def check():
 @bot.event
 async def on_ready():
     await check()
-
-@bot.command()
-async def help(ctx):
-    embed=discord.Embed(title="Arlandagymnasiet maträtt", description="Här kommer alla kommandon!", color=0x0cd611)
-    embed.add_field(name=".meal", value="Hämtar dagens maträtt", inline=True)
-    embed.add_field(name=".meal -D -M", value="Hämtar maträtt för den dagen(-D -M) (ex. 20 jan)", inline=True)
-    embed.add_field(name=".search -R", value="Söker efter en maträtt(-R)", inline=True)
-    await ctx.send(embed=embed)
 
 
 @bot.command()
