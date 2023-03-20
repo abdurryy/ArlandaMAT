@@ -8,11 +8,11 @@ from datetime import datetime
 DISCORD_TOKEN = ""
 bot = commands.Bot(command_prefix=".", intents=discord.Intents.all())
 AF = ArlandaMAT()
+lastdatepinged = None
 
 @tasks.loop(seconds=5)
 async def check():
     channel = await bot.fetch_channel(1068962730473693294)
-    lastdatepinged = None
     nowdate = datetime.now().strftime("%d %B")
     print(nowdate, lastdatepinged)
     if lastdatepinged != nowdate:
