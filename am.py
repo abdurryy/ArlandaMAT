@@ -17,6 +17,8 @@ class ArlandaMAT():
         r = self.req.get("https://mpi.mashie.com/public/app/Sigtuna%20Kommun/425457e0")
         bs = BeautifulSoup(r.text, "html.parser")
         p = [str(x.text) for x in bs.find_all("div",{"class":"panel panel-default app-default"})]
+        try:p.append(bs.find_all("div",{"class":"panel panel-primary"})[0].text)
+        except:pass
         obj = self.remove_breaks(p)
         return obj
     
@@ -55,3 +57,5 @@ class ArlandaMAT():
         if len(day.split(" ")[0]) == 1:
             day = f"0{day.split(' ')[0]} {m}"
         return self.get_day(day)
+print(ArlandaMAT().get_today())
+print(ArlandaMAT().get_day("20 mar"))
