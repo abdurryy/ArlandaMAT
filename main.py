@@ -12,6 +12,7 @@ lastdatepinged = None
 
 @tasks.loop(seconds=5)
 async def check():
+    global lastdatepinged
     channel = await bot.fetch_channel(1068962730473693294)
     nowdate = datetime.now().strftime("%d %B")
     print(nowdate, lastdatepinged)
