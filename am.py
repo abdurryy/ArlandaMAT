@@ -57,5 +57,3 @@ class ArlandaMAT():
         if len(day.split(" ")[0]) == 1:
             day = f"0{day.split(' ')[0]} {m}"
         return self.get_day(day)
-print(ArlandaMAT().get_today())
-print(ArlandaMAT().get_day("20 mar"))
