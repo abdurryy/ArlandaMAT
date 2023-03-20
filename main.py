@@ -15,10 +15,10 @@ async def check():
     lastdatepinged = None
     nowdate = datetime.now().strftime("%d %B")
     if lastdatepinged != nowdate:
-        if datetime.now().strftime("%H:%M") == "10:00":
-            lastdatepinged = nowdate
+        if datetime.now().strftime("%H:%M") == "10:15":
             meal = AF.get_today()
             if meal != None:
+                lastdatepinged = nowdate
                 await channel.send("@everyone")
                 embed=discord.Embed(title="Arlandagymnasiet maträtt", description="Här kommer den dagliga uppdateringen!", color=0x0cd611)
                 embed.add_field(name="Dagens rätt", value=f"{meal[3]}", inline=True)
